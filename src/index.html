@@ -4,10 +4,89 @@
     <title>Input Validations</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
   </head>
   <body>
-    
+    <section class="container flex">
+      <h1>Example Input Validation</h1>
+      <form action="">
+        <fieldset class="">
+          <div>
+            <label for="credit_card">
+              Credit Card
+              <input type="text" id="credit_card" name="credit_card">
+            </label>
+          </div>
+          <div>
+            <label for="phone">
+              Phone Number
+              <input type="text" id="phone" name="phone">
+            </label>
+          </div>
+          <div>
+            <label for="email">
+              Email
+              <input type="email" id="email" name="email">
+            </label>
+          </div>
+          <div>
+            <label for="confirm_email">
+              Confirm Email
+              <input type="email" id="confirm_email" name="confirm_email">
+            </label>
+          </div>
+          <button disabled class="">Continuar</button>
+        </fieldset>
+        <fieldset class="active">
+          <div>
+            <label for="promotion_50">
+              50% Promo
+            </label>
+            <input type="radio" id="promotion_50" name="promotion">
+          </div>
+          <div>
+            <label for="promotion_30">
+              30% Promo
+            </label>
+            <input type="radio" id="promotion_30" name="promotion">
+          </div>
+          <button disabled class="">Continuar</button>
+        </fieldset>
+        <fieldset>
+          <div>
+            <h2>Check your information</h2>
+            <p>
+              Credit Card:
+              <br>
+              <span data-span="credit_card">
+                51651651561
+              </span>
+            </p>
+            <p>
+              Phone Number
+              <br>
+              <span data-span="phone">
+                51651651561
+              </span>
+            </p>
+            <p>
+              Email
+              <br>
+              <span data-span="email">
+                51651651561
+              </span>
+            </p>
+            <p>
+              Promotion
+              <br>
+              <span data-span="promotion">
+                100%
+              </span>
+            </p>
+          </div>
+        </fieldset>
+      </form>
+    </section>
     <script defer src="./assets/js/app.js"></script>
   </body>
 </html>
