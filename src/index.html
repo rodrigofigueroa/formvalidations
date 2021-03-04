@@ -10,7 +10,7 @@
     <section class="container flex">
       <h1>Example Input Validation</h1>
       <form action="">
-        <fieldset class="">
+        <fieldset class="active">
           <div>
             <label for="credit_card">
               Credit Card
@@ -37,18 +37,25 @@
           </div>
           <button disabled class="">Continuar</button>
         </fieldset>
-        <fieldset class="active">
+        <fieldset class="">
+          <h2 class="">Choose One Promotion</h2>
           <div>
-            <label for="promotion_50">
+            <label for="promotion_50" class="flex">
               50% Promo
+              <div>
+                <input type="radio" id="promotion_50" name="promotion">
+                <span class="checkmark"></span>
+              </div>
             </label>
-            <input type="radio" id="promotion_50" name="promotion">
           </div>
           <div>
-            <label for="promotion_30">
+            <label for="promotion_30" class="flex">
               30% Promo
+              <div>
+                <input type="radio" id="promotion_30" name="promotion">
+                <span class="checkmark"></span>
+              </div>
             </label>
-            <input type="radio" id="promotion_30" name="promotion">
           </div>
           <button disabled class="">Continuar</button>
         </fieldset>
@@ -84,6 +91,19 @@
               </span>
             </p>
           </div>
+          <button>Step Back</button>
+          <button>Send</button>
+        </fieldset>
+        <fieldset>
+          <h2>Sending the information</h2>
+        </fieldset>
+        <fieldset>
+          <h2>Nice! Check your Folio and your promotion</h2>
+          <p>Folio: <span>XXXX</span></p>
+          <p>
+            Promotion:
+            <span>Something</span>
+          </p>
         </fieldset>
       </form>
     </section>
