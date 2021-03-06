@@ -35,15 +35,15 @@
               <input type="email" id="confirm_email" name="confirm_email">
             </label>
           </div>
-          <button disabled class="">Continuar</button>
+          <button disabled class="" data-inp="continue">Continuar</button>
         </fieldset>
-        <fieldset class="">
+        <fieldset>
           <h2 class="">Choose One Promotion</h2>
           <div>
             <label for="promotion_50" class="flex">
               50% Promo
               <div>
-                <input type="radio" id="promotion_50" name="promotion">
+                <input type="radio" id="promotion_50" name="promotion" value="50% OFF">
                 <span class="checkmark"></span>
               </div>
             </label>
@@ -52,12 +52,12 @@
             <label for="promotion_30" class="flex">
               30% Promo
               <div>
-                <input type="radio" id="promotion_30" name="promotion">
+                <input type="radio" id="promotion_30" name="promotion" value="30% OFF">
                 <span class="checkmark"></span>
               </div>
             </label>
           </div>
-          <button disabled class="">Continuar</button>
+          <button disabled data-inp="continue">Continuar</button>
         </fieldset>
         <fieldset>
           <div>
@@ -91,8 +91,8 @@
               </span>
             </p>
           </div>
-          <button>Step Back</button>
-          <button>Send</button>
+          <button data-inp="start" style="margin-bottom: 20px;" class="active">Rewrite Something</button>
+          <button data-inp="continue" class="active">Send</button>
         </fieldset>
         <fieldset>
           <h2>Sending the information</h2>
