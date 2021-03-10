@@ -2,9 +2,10 @@
 function startForm(){
   const form      = document.querySelector( 'form' ),
         inputs    = form.querySelectorAll( 'input' ),
-        btnC      = form.querySelectorAll( 'button[data-inp="continue"]'),
-        btnStart  = form.querySelectorAll( 'button[data-inp="start"]'),
-        spans     = form.querySelectorAll('span[data-span]')
+        btnC      = form.querySelectorAll( 'button[data-inp="continue"]' ),
+        btnStart  = form.querySelectorAll( 'button[data-inp="start"]' ),
+        spans     = form.querySelectorAll( 'span[data-span]' ),
+        inpSend   = form.querySelector( 'button[data-send]' ),
         fieldsset = form.querySelectorAll( 'fieldset' ),
         regex     = {
           credit_card: /^(([0-9]{4}) ([0-9]{4}) ([0-9]{4}) ([0-9]{4})( ?))$/,
@@ -27,8 +28,9 @@ function startForm(){
         },
         check2    = {
           promotion: false
-        }
-        
+        },
+        URL_DATA  = `../db.json`
+    
     const addSpaceToNumbers = ( number = 4, string ) => {
       const regex = new RegExp( `[0-9]{${ number }}`, 'gi' )
       return string.replace( /\s+/gi, '').replace( regex, '$& ' )
@@ -172,6 +174,12 @@ function startForm(){
       fieldsset.forEach( fieldset => fieldset.classList.remove( 'active' ) )
       fieldsset[ 0 ].classList.add( 'active' )
     }
+    const sendingData = () => {
+      fetch( URL_DATA )
+      .then( raw => raw.json() )
+      .then( data => console.log( data ) )
+      .catch( err => console.error( err ) )
+    }
   inputs.forEach( input => 
     input.type !== 'radio'
     ? input.addEventListener( 'keyup', checkEachInput )
@@ -182,15 +190,21 @@ function startForm(){
   btnC[ 1 ].addEventListener( 'click', () =>
   spans.forEach( span => {
     const data = span.dataset.span
-      span.textContent = check.body[ data ]
+    let chkBody = check.body[ data ]
+      if( data === 'credit_card' ){
+        let chbtoB = chkBody.slice( 0, chkBody.length - 5 ).replace( /[0-9]/g, '•' )
+        span.textContent = `${ chbtoB }${ chkBody.slice( -5 )  }`
+      } else {
+        span.textContent = chkBody
+      }
     }) 
   )
   btnStart.forEach( btn => btn.addEventListener( 'click', backToStart ) )
+  inpSend.addEventListener( 'click', sendingData )
+  this.chk = check
   return {
     check
   }
 }
 
-window.addEventListener( 'load', e => {
-  window.chk = startForm( e )
-})
+window.addEventListener( 'load', e => startForm( e ) )
