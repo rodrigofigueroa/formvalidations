@@ -1,0 +1,13 @@
+{
+  "promotions": [
+    {
+      "info": {
+        "promotion": "50% OFF",
+        "email": "rod@hu.com",
+        "credit_card": "6626 2623 6523 6562",
+        "phone": "55 15 15 54 54"
+      },
+      "id": 1
+    }
+  ]
+}

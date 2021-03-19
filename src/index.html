@@ -49,10 +49,10 @@
             </label>
           </div>
           <div>
-            <label for="promotion_30" class="flex">
-              30% Promo
+            <label for="promotion_100" class="flex">
+              100 coins will be added to your account
               <div>
-                <input type="radio" id="promotion_30" name="promotion" value="30% OFF">
+                <input type="radio" id="promotion_100" name="promotion" value="100 coins will be added to your account">
                 <span class="checkmark"></span>
               </div>
             </label>
@@ -99,11 +99,18 @@
         </fieldset>
         <fieldset>
           <h2>Nice! Check your Folio and your promotion</h2>
-          <p>Folio: <span>XXXX</span></p>
-          <p>
+          <p class="folio">Folio: <span>XXXX</span></p>
+          <p class="promotion_end">
             Promotion:
             <span>Something</span>
           </p>
+        </fieldset>
+        <fieldset>
+          <h2>Sorry there was an error</h2>
+          <p>
+            Please check your information and try again
+          </p>
+          <button data-inp="start" class="active">Check Info</button>
         </fieldset>
       </form>
     </section>

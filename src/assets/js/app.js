@@ -26,10 +26,7 @@ function startForm(){
           },
           transform_c_card: []
         },
-        check2    = {
-          promotion: false
-        },
-        URL_DATA  = `../db.json`
+        URL_DATA  = `http://localhost:3333/promotions`
     
     const addSpaceToNumbers = ( number = 4, string ) => {
       const regex = new RegExp( `[0-9]{${ number }}`, 'gi' )
@@ -174,11 +171,45 @@ function startForm(){
       fieldsset.forEach( fieldset => fieldset.classList.remove( 'active' ) )
       fieldsset[ 0 ].classList.add( 'active' )
     }
-    const sendingData = () => {
-      fetch( URL_DATA )
+    const errorFields = err => {
+      setTimeout( () => {
+        [].forEach.call(
+          fieldsset,
+          function( field ){
+            field.classList.remove( 'active' )
+          }
+        )
+        fieldsset[ fieldsset.length - 1 ].classList.add( 'active' )
+      }, 1000 )
+      console.error( err )
+    }
+    const sendingData = e => {
+      delete check.body.confirm_email
+      let body = JSON.stringify( { info: check.body } )
+      let conf = {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body
+      }
+      fetch( URL_DATA, conf )
       .then( raw => raw.json() )
-      .then( data => console.log( data ) )
-      .catch( err => console.error( err ) )
+      .then( ({ info, id }) => {
+        if( info.credit_card ){
+          document.querySelector( '.folio span' )
+          .textContent = id
+          document.querySelector( '.promotion_end span' )
+          .textContent = info.promotion
+          ;[].forEach.call( fieldsset, function( fieldset ){
+            fieldset.classList.remove( 'active' )
+          })
+          fieldsset[ fieldsset.length - 2 ].classList.add( 'active' )
+        }else{
+          errorFields( 'there is something wrong with the call')
+        }
+      })
+      .catch( err => errorFields( err ) )
     }
   inputs.forEach( input => 
     input.type !== 'radio'
@@ -202,9 +233,6 @@ function startForm(){
   btnStart.forEach( btn => btn.addEventListener( 'click', backToStart ) )
   inpSend.addEventListener( 'click', sendingData )
   this.chk = check
-  return {
-    check
-  }
 }
 
 window.addEventListener( 'load', e => startForm( e ) )
