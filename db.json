@@ -8,6 +8,42 @@
         "phone": "55 15 15 54 54"
       },
       "id": 1
+    },
+    {
+      "info": {
+        "credit_card": "1545 4545 8784 5121 ",
+        "phone": "87 54 21 54 87 ",
+        "email": "rod@medium.com",
+        "promotion": "50% OFF"
+      },
+      "id": 2
+    },
+    {
+      "info": {
+        "credit_card": "5151 6516 5165 1651 ",
+        "phone": "51 65 16 51 55 ",
+        "email": "rod@hu.com",
+        "promotion": "50% OFF"
+      },
+      "id": 3
+    },
+    {
+      "info": {
+        "credit_card": "5165 1651 6516 5165 ",
+        "phone": "15 16 51 65 15 ",
+        "email": "rod@hu.com",
+        "promotion": "100 coins will be added to your account"
+      },
+      "id": 4
+    },
+    {
+      "info": {
+        "credit_card": "5454 8745 4212 1234 ",
+        "phone": "87 45 12 54 87 ",
+        "email": "medium@medium.com",
+        "promotion": "100 coins will be added to your account"
+      },
+      "id": 5
     }
   ]
 }
